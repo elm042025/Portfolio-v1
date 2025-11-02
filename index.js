@@ -1,3 +1,73 @@
+// ===== Loading Animation =====
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader-wrapper");
+  setTimeout(() => {
+    loader.classList.add("hidden");
+  }, 1000);
+});
+
+// ===== Typing Animation =====
+const textToType =
+  "From fiber optics to full-stack — building calm, reliable web apps.";
+const typedTextElement = document.getElementById("typed-text");
+let charIndex = 0;
+
+function typeText() {
+  if (charIndex < textToType.length) {
+    typedTextElement.textContent += textToType.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeText, 50);
+  }
+}
+
+// Start typing after page load
+window.addEventListener("load", () => {
+  setTimeout(typeText, 1200);
+});
+
+// ===== Hamburger Menu Toggle =====
+const hamburger = document.querySelector(".hamburger");
+const navLinksMenu = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navLinksMenu.classList.toggle("active");
+});
+
+// Close menu when clicking on a link
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navLinksMenu.classList.remove("active");
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener("click", (e) => {
+  if (!hamburger.contains(e.target) && !navLinksMenu.contains(e.target)) {
+    hamburger.classList.remove("active");
+    navLinksMenu.classList.remove("active");
+  }
+});
+
+// ===== Scroll to Top Button =====
+const scrollToTopBtn = document.querySelector(".scroll-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.add("visible");
+  } else {
+    scrollToTopBtn.classList.remove("visible");
+  }
+});
+
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
 // ===== Floating Line Parallax Effect =====
 document.addEventListener("mousemove", (e) => {
   const line = document.querySelector(".floating-line");

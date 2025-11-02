@@ -6,6 +6,22 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+
+    <!-- fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <link
       rel="stylesheet"
       href="./global.css"
@@ -18,6 +34,15 @@
     <title>Mohammed's Portfolio</title>
   </head>
   <body>
+    <!-- Loading Animation -->
+    <div class="loader-wrapper">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-circle"></div>
+        <div class="loader-circle"></div>
+      </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
@@ -26,6 +51,14 @@
           class="logo"
           >ME</a
         >
+        <button
+          class="hamburger"
+          aria-label="Toggle menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -39,7 +72,10 @@
     <section class="hero">
       <div class="floating-line"></div>
       <h1>Mohammed Elmongy</h1>
-      <p>From fiber optics to full-stack — building calm, reliable web apps.</p>
+      <p class="typing-text">
+        <span id="typed-text"></span>
+        <span class="cursor">|</span>
+      </p>
       <div class="cta">
         <a
           class="btn btn-primary"
@@ -75,8 +111,8 @@
             </p>
             <p>
               When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing what I've learned
-              with the developer community.
+              driving far away to take my next favorite photograph, or catching
+              up on my favorite shows.
             </p>
           </div>
         </div>
@@ -291,7 +327,9 @@
             </div>
             <div class="contact-item">
               <h3>💼 LinkedIn</h3>
-              <p><a href="#">www.linkedin.com/in/mohammed-s-elmongy-78abb2384</a></p>
+              <p>
+                <a href="#">www.linkedin.com/in/mohammed-s-elmongy-78abb2384</a>
+              </p>
             </div>
             <div class="contact-item">
               <h3>💻 GitHub</h3>
@@ -325,5 +363,22 @@
         </div>
       </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button
+      class="scroll-to-top"
+      aria-label="Scroll to top"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
   </body>
 </html>
