@@ -181,28 +181,34 @@
         <div class="projects-grid">
           <div class="project-card card">
             <div class="project-image">
-              <div class="placeholder-img">🎯</div>
+              <div class="placeholder-img">
+                <img
+                  src="./assets/screenshot gutendex.png"
+                  alt="The book voyager landing page"
+                />
+              </div>
             </div>
             <div class="project-content">
-              <h3>Project One</h3>
+              <h3>Book Voyager</h3>
               <p>
-                A full-stack web application built with React and Node.js.
-                Features user authentication, real-time updates, and a
-                responsive design.
+                A frontend project built with React and modern JavaScript.
+                Integrates with the Gutendex API to provide live search,
+                category filtering, and a favorites feature — styled for smooth
+                usability across devices.
               </p>
               <div class="project-tags">
                 <span class="tag">React</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">MongoDB</span>
+                <span class="tag">Vite</span>
+                <span class="tag">React Router</span>
               </div>
               <div class="project-links">
                 <a
-                  href="#"
+                  href="https://elm042025.github.io/Gutendex/"
                   class="btn btn-primary"
                   >Live Demo</a
                 >
                 <a
-                  href="#"
+                  href="https://github.com/elm042025/Gutendex"
                   class="btn btn-ghost"
                   >GitHub</a
                 >
@@ -212,43 +218,19 @@
 
           <div class="project-card card">
             <div class="project-image">
-              <div class="placeholder-img">🚀</div>
-            </div>
-            <div class="project-content">
-              <h3>Project Two</h3>
-              <p>
-                An e-commerce platform with product management, shopping cart
-                functionality, and secure payment integration.
-              </p>
-              <div class="project-tags">
-                <span class="tag">JavaScript</span>
-                <span class="tag">Express</span>
-                <span class="tag">SQL</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="#"
-                  class="btn btn-primary"
-                  >Live Demo</a
-                >
-                <a
-                  href="#"
-                  class="btn btn-ghost"
-                  >GitHub</a
-                >
+              <div class="placeholder-img">
+                <img
+                  src="./assets/screenshot To-Do.png"
+                  alt="the to-do list app screenshot showing a user added completed and uncompleted tasks"
+                />
               </div>
             </div>
-          </div>
-
-          <div class="project-card card">
-            <div class="project-image">
-              <div class="placeholder-img">🎨</div>
-            </div>
             <div class="project-content">
-              <h3>Project Three</h3>
+              <h3>To-Do List App</h3>
               <p>
-                A portfolio website template with smooth animations, dark mode
-                toggle, and fully responsive layout.
+                A simple to-do list application built with HTML, CSS, and
+                JavaScript. Allows users to add, edit, and delete tasks with
+                local storage support.
               </p>
               <div class="project-tags">
                 <span class="tag">HTML</span>
@@ -257,12 +239,49 @@
               </div>
               <div class="project-links">
                 <a
-                  href="#"
+                  href="https://elm042025.github.io/To-Do-List/"
                   class="btn btn-primary"
                   >Live Demo</a
                 >
                 <a
-                  href="#"
+                  href="https://github.com/elm042025/To-Do-List"
+                  class="btn btn-ghost"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card card">
+            <div class="project-image">
+              <div class="placeholder-img">
+                <img
+                  src="./assets/screenshot fjellfilm api.png"
+                  alt="JSON data representation of movie reviews"
+                />
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Fjellfilm API</h3>
+              <p>
+                A Node.js REST API for managing movie reviews. Built with
+                Express and connected to a SQL database, featuring CRUD
+                endpoints, validation, and modular structure.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Node/Express</span>
+                <span class="tag">SQL</span>
+                <span class="tag">React</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/elm042025/Movie-Review-Fullstack"
+                  class="btn btn-primary"
+                  disabled
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/elm042025/Movie-Review-Fullstack"
                   class="btn btn-ghost"
                   >GitHub</a
                 >
@@ -285,7 +304,33 @@
           free to reach out if you'd like to work together!
         </p>
         <div class="contact-content">
-          <form class="contact-form card">
+          <form
+            class="contact-form card"
+            action="https://formsubmit.co/mohammed.elmongi@gmail.com"
+            method="POST"
+          >
+            <!-- FormSubmit Configuration -->
+            <input
+              type="hidden"
+              name="_captcha"
+              value="false"
+            />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://elm042025.github.io/Portfolio-v1/?success=true"
+            />
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Portfolio Contact Form Submission!"
+            />
+            <input
+              type="hidden"
+              name="_template"
+              value="table"
+            />
+
             <div class="form-group">
               <label for="name">Name</label>
               <input
@@ -320,6 +365,19 @@
               Send Message
             </button>
           </form>
+
+          <!-- Success Message (hidden by default) -->
+          <div
+            class="success-message"
+            id="successMessage"
+          >
+            <div class="success-content">
+              <div class="success-icon">✓</div>
+              <h3>Message Sent Successfully!</h3>
+              <p>Thank you for reaching out. I'll get back to you soon!</p>
+            </div>
+          </div>
+
           <div class="contact-info">
             <div class="contact-item">
               <h3>📧 Email</h3>

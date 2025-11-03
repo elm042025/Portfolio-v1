@@ -138,26 +138,36 @@ document.querySelectorAll(".card, section").forEach((el) => {
 });
 
 // ===== Contact Form Handling =====
-const contactForm = document.querySelector(".contact-form");
-
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    // Here you would typically send the form data to a server
-    console.log("Form submitted:", { name, email, message });
-
+// Check if form was successfully submitted
+window.addEventListener("load", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("success") === "true") {
     // Show success message
-    alert("Thank you for your message! I'll get back to you soon.");
+    const successMessage = document.getElementById("successMessage");
+    const contactForm = document.querySelector(".contact-form");
 
-    // Reset form
-    contactForm.reset();
-  });
-}
+    if (successMessage && contactForm) {
+      contactForm.style.display = "none";
+      successMessage.classList.add("show");
+
+      // Scroll to contact section
+      setTimeout(() => {
+        document.getElementById("contact").scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 100);
+
+      // Remove success parameter from URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+
+      // Reset after 10 seconds
+      setTimeout(() => {
+        contactForm.style.display = "block";
+        successMessage.classList.remove("show");
+      }, 10000);
+    }
+  }
+});
 
 // ===== Navbar Background on Scroll =====
 const navbar = document.querySelector(".navbar");
