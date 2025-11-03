@@ -6,6 +6,22 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <meta
+      name="description"
+      content="Mohammed Elmongy - Full-stack developer..."
+    />
+    <meta
+      property="og:title"
+      content="Mohammed Elmongy | Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Mohammed Elmongy - Full-stack developer"
+    />
+    <link
+      rel="icon"
+      href="./assets/favicon.ico"
+    />
 
     <!-- fonts -->
     <link
@@ -44,10 +60,14 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <nav
+      class="navbar"
+      role="navigation"
+      aria-label="Main Navigation"
+    >
       <div class="nav-container">
         <a
-          href="/"
+          href="#"
           class="logo"
           >ME</a
         >
@@ -94,7 +114,6 @@
     <section
       id="about"
       class="about"
-      aria-current="about"
     >
       <div class="container">
         <h2>About Me</h2>
@@ -124,7 +143,6 @@
     <section
       id="skills"
       class="skills"
-      aria-current="skills"
     >
       <div class="container">
         <h2>Skills & Technologies</h2>
@@ -177,7 +195,6 @@
     <section
       id="projects"
       class="projects"
-        aria-current="projects"
     >
       <div class="container">
         <h2>Featured Projects</h2>
@@ -279,8 +296,8 @@
               <div class="project-links">
                 <a
                   href="https://github.com/elm042025/Movie-Review-Fullstack"
-                  class="btn btn-primary"
-                  disabled
+                  class="btn btn-primary btn-disabled"
+                  aria-disabled="true"
                   >Live Demo</a
                 >
                 <a
@@ -299,7 +316,6 @@
     <section
       id="contact"
       class="contact"
-        aria-current="contact"
     >
       <div class="container">
         <h2>Get In Touch</h2>
@@ -342,6 +358,7 @@
                 id="name"
                 name="name"
                 required
+                placeholder="Bill Gates"
               />
             </div>
             <div class="form-group">
@@ -351,6 +368,7 @@
                 id="email"
                 name="email"
                 required
+                placeholder="bill.gates@microsoft.com"
               />
             </div>
             <div class="form-group">
@@ -360,6 +378,7 @@
                 name="message"
                 rows="5"
                 required
+                placeholder="Message here..."
               ></textarea>
             </div>
             <button
@@ -384,18 +403,27 @@
 
           <div class="contact-info">
             <div class="contact-item">
-              <h3>📧 Email</h3>
-              <p><a href="mailto:mohammed.elmongi@gmail.com">Send Email</a></p>
+              <a href="mailto:mohammed.elmongi@gmail.com">
+                <h3>📧 Email</h3>
+              </a>
+            </div>
+            <div class="contact-item middle-item">
+              <a
+                href="https://www.linkedin.com/in/mohammed-s-elmongy-78abb2384"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>💼 LinkedIn</h3>
+              </a>
             </div>
             <div class="contact-item">
-              <h3>💼 LinkedIn</h3>
-              <p>
-                <a href="https://www.linkedin.com/in/mohammed-s-elmongy-78abb2384">Visit my LinkedIn Profile</a>
-              </p>
-            </div>
-            <div class="contact-item">
-              <h3>💻 GitHub</h3>
-              <p><a href="https://github.com/elm042025">Visit my GitHub Profile</a></p>
+              <a
+                href="https://github.com/elm042025"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>💻 GitHub</h3>
+              </a>
             </div>
           </div>
         </div>
@@ -409,16 +437,22 @@
         <div class="social-links">
           <a
             href="https://github.com/elm042025"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
             >GitHub</a
           >
           <a
             href="https://www.linkedin.com/in/mohammed-s-elmongy-78abb2384"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
             >LinkedIn</a
           >
           <a
             href="https://www.instagram.com/mohammed.s.elmongy/"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Instagram"
             >Instagram</a
           >

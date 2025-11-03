@@ -149,7 +149,7 @@ a:hover {
   height: 200px;
   border: 2px solid var(--primary);
   border-radius: 50%;
-  opacity: 0.1;
+  opacity: 0.3;
   pointer-events: none;
   transition: transform 0.2s ease-out;
 }
@@ -234,6 +234,19 @@ a:hover {
 .btn-ghost:hover {
   border-color: var(--primary);
   background: rgba(56, 189, 248, 0.1);
+}
+
+.btn-disabled {
+  background: var(--muted);
+  color: var(--bg);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-disabled:hover {
+  background: var(--muted);
+  transform: none;
+  box-shadow: none;
 }
 
 /* ===== Cards ===== */
@@ -418,11 +431,9 @@ section h2 {
 
 .contact-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 2rem;
 }
 
 .contact-form {
@@ -468,7 +479,8 @@ section h2 {
 .contact-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -476,10 +488,8 @@ section h2 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   color: var(--primary);
-}
-
-.contact-item p {
-  color: var(--muted);
+  text-align: center;
+  padding: 1.25rem;
 }
 
 /* Success Message */
@@ -661,7 +671,7 @@ section h2 {
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
   .hamburger {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-links {
@@ -709,6 +719,28 @@ section h2 {
   .skills-grid,
   .projects-grid {
     grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .skill-card,
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  .project-links{
+    flex-direction: column;
+  }
+
+  /* Contact section mobile layout */
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .footer .container {
