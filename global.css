@@ -359,7 +359,7 @@ section h2 {
 
 .project-image {
   background: linear-gradient(135deg, #1e293b, #334155);
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -367,6 +367,8 @@ section h2 {
 
 .placeholder-img {
   height: fit-content;
+  display: flex;
+  align-items: center;
 }
 
 .placeholder-img img {
