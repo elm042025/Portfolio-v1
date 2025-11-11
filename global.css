@@ -435,7 +435,7 @@ section h2 {
 
 .contact-content {
   display: grid;
-  grid-template-columns:1fr;
+  grid-template-columns: 1fr;
   gap: 3rem;
   max-width: 800px;
   margin: 0 auto;
@@ -812,7 +812,7 @@ section h2 {
   }
 
   .project-content {
-  padding: 1rem;
+    padding: 1rem;
   }
   .project-links {
     flex-direction: column;
