@@ -188,3 +188,85 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// ===== Skills Carousel Dots =====
+const skillsGrid = document.querySelector(".skills-grid");
+const skillsDots = document.querySelectorAll(".skills-dots .dot");
+
+// Update active dot based on scroll position
+function updateSkillsDots() {
+  if (!skillsGrid || window.innerWidth > 768) return;
+
+  const scrollLeft = skillsGrid.scrollLeft;
+  const cardWidth = skillsGrid.querySelector(".skill-card").offsetWidth;
+  const gap = 24; // 1.5rem gap
+  const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+
+  skillsDots.forEach((dot, index) => {
+    if (index === activeIndex) {
+      dot.classList.add("active");
+    } else {
+      dot.classList.remove("active");
+    }
+  });
+}
+
+// Listen to scroll events on skills grid
+if (skillsGrid) {
+  skillsGrid.addEventListener("scroll", updateSkillsDots);
+
+  // Click on dots to scroll to corresponding card
+  skillsDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      const cardWidth = skillsGrid.querySelector(".skill-card").offsetWidth;
+      const gap = 24;
+      const scrollTo = index * (cardWidth + gap);
+
+      skillsGrid.scrollTo({
+        left: scrollTo,
+        behavior: "smooth",
+      });
+    });
+  });
+}
+
+// ===== Projects Carousel Dots =====
+const projectsGrid = document.querySelector(".projects-grid");
+const projectsDots = document.querySelectorAll(".projects-dots .dot");
+
+// Update active dot based on scroll position
+function updateProjectsDots() {
+  if (!projectsGrid || window.innerWidth > 768) return;
+
+  const scrollLeft = projectsGrid.scrollLeft;
+  const cardWidth = projectsGrid.querySelector(".project-card").offsetWidth;
+  const gap = 24; // 1.5rem gap
+  const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+
+  projectsDots.forEach((dot, index) => {
+    if (index === activeIndex) {
+      dot.classList.add("active");
+    } else {
+      dot.classList.remove("active");
+    }
+  });
+}
+
+// Listen to scroll events on projects grid
+if (projectsGrid) {
+  projectsGrid.addEventListener("scroll", updateProjectsDots);
+
+  // Click on dots to scroll to corresponding card
+  projectsDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      const cardWidth = projectsGrid.querySelector(".project-card").offsetWidth;
+      const gap = 24;
+      const scrollTo = index * (cardWidth + gap);
+
+      projectsGrid.scrollTo({
+        left: scrollTo,
+        behavior: "smooth",
+      });
+    });
+  });
+}

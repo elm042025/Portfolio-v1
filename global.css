@@ -3,7 +3,7 @@
   --bg: #0f172a;
   --surface: #111827;
   --text: #e5e7eb;
-  --muted: #96a5ba;
+  --muted: #b1bdce;
   --primary: #38bdf8;
   --accent: #34d399;
   --radius: 16px;
@@ -50,6 +50,7 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
 }
 
 /* ===== Navigation ===== */
@@ -273,6 +274,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 section h2 {
@@ -433,9 +435,9 @@ section h2 {
 
 .contact-content {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns:1fr;
   gap: 3rem;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -720,16 +722,97 @@ section h2 {
     text-align: center;
   }
 
-  .skills-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
+  /* Projects section needs special container handling */
+  .projects .container {
+    padding: 1rem;
+    max-width: 100%;
   }
 
-  .skill-card,
+  .skills-grid {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding: 0 1rem 1.5rem 1rem;
+    margin: 0 -2rem;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar for Chrome/Safari */
+  .skills-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  div.skill-card.card {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  /* Carousel Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 1rem 0;
+  }
+
+  .carousel-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(148, 163, 184, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+  }
+
+  .carousel-dots .dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    width: 24px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  }
+
+  .carousel-dots .dot:hover {
+    background: rgba(56, 189, 248, 0.6);
+    border-color: var(--primary);
+  }
+
+  /* Projects Carousel on Mobile */
+  .projects-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    margin: 0 -2rem;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar for Chrome/Safari */
+  .projects-grid::-webkit-scrollbar {
+    display: none;
+  }
+
   .project-card {
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .project-content {
+  padding: 1rem;
   }
   .project-links {
     flex-direction: column;
@@ -738,8 +821,8 @@ section h2 {
   /* Contact section mobile layout */
   .contact-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1rem;
+    align-content: center;
+    padding: 0;
   }
 
   .contact-info {
