@@ -80,7 +80,7 @@ a:hover {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--primary);
-  z-index: 1001;
+  z-index: 999;
 }
 
 /* Hamburger Menu */
@@ -129,6 +129,30 @@ a:hover {
 
 .nav-links a:hover {
   color: var(--primary);
+}
+
+/* Language Toggle */
+.lang-toggle {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-toggle:hover {
+  border-color: var(--primary);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.lang-icon {
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 /* ===== Hero Section ===== */
@@ -262,7 +286,6 @@ a:hover {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-
 }
 
 /* ===== Section Styles ===== */
@@ -681,6 +704,12 @@ section h2 {
     display: flex !important;
   }
 
+  .lang-toggle {
+    order: -1;
+    /* margin-right: auto; */
+    margin-left: 1rem;
+  }
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -700,6 +729,7 @@ section h2 {
 
   .nav-links.active {
     right: 0;
+    z-index: 1000;
   }
 
   .nav-links li {

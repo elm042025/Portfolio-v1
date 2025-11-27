@@ -1,3 +1,248 @@
+// ===== Language Translation System =====
+const translations = {
+  no: {
+    nav: {
+      about: "Om meg",
+      skills: "Ferdigheter",
+      projects: "Prosjekter",
+      contact: "Kontakt",
+    },
+    hero: {
+      typing:
+        "Fra fiberoptikk til full-stack — bygger rolige, pålitelige webapper.",
+      viewProjects: "Se prosjekter",
+      getInTouch: "Ta kontakt",
+    },
+    about: {
+      title: "Om meg",
+      p1: "Hei! Jeg er Mohammed — en utvikler med bakgrunn fra fiberoptikk. Etter 12 år innen telekom, gikk jeg over til webutvikling for å kombinere min tekniske presisjon med kreativ problemløsning.",
+      p2: "Min tilnærming til koding er metodisk og detaljorientert. Jeg fokuserer på å skrive ren, vedlikeholdbar kode og lage brukeropplevelser som føles intuitive, rolige og målrettede.",
+      p3: "Når jeg ikke koder, utforsker jeg vanligvis nye teknologier, kjører langt for å ta mitt neste favoritbilde, eller tar igjen favorittseriene mine.",
+      p4: "Jeg bygger for tiden prosjekter som kobler teknologi med reell menneskelig påvirkning — og ser alltid etter muligheter til å vokse og samarbeide.",
+    },
+    skills: {
+      title: "Ferdigheter & Teknologier",
+      frontend: "Frontend",
+      backend: "Backend",
+      tools: "Verktøy",
+      softSkills: "Myke ferdigheter",
+      softSkillsList: [
+        "Problemløsning",
+        "Teamsamarbeid",
+        "Kommunikasjon",
+        "Kontinuerlig læring",
+      ],
+    },
+    projects: {
+      title: "Utvalgte prosjekter",
+      liveDemo: "Live demo",
+      github: "GitHub",
+    },
+    contact: {
+      title: "Ta kontakt",
+      intro:
+        "Jeg er alltid åpen for nye muligheter og interessante prosjekter. Ta gjerne kontakt hvis du vil jobbe sammen!",
+      name: "Navn",
+      namePlaceholder: "Ola Nordmann",
+      email: "E-post",
+      emailPlaceholder: "ola.nordmann@eksempel.no",
+      message: "Melding",
+      messagePlaceholder: "Melding her...",
+      send: "Send melding",
+      successTitle: "Melding sendt!",
+      successMessage:
+        "Takk for at du tok kontakt. Jeg kommer tilbake til deg snart!",
+    },
+    footer: {
+      rights: "Alle rettigheter forbeholdt.",
+    },
+  },
+  en: {
+    nav: {
+      about: "About",
+      skills: "Skills",
+      projects: "Projects",
+      contact: "Contact",
+    },
+    hero: {
+      typing:
+        "From fiber optics to full-stack — building calm, reliable web apps.",
+      viewProjects: "View Projects",
+      getInTouch: "Get in touch",
+    },
+    about: {
+      title: "About Me",
+      p1: "Hi! I'm Mohammed — a developer with a background in fiber optics engineering. After 12 years in telecom, I transitioned into web development to combine my technical precision with creative problem-solving.",
+      p2: "My approach to coding is methodical and detail-oriented. I focus on writing clean, maintainable code and crafting user experiences that feel intuitive, calm, and purposeful.",
+      p3: "When I'm not coding, I'm usually exploring new technologies, driving off to capture my next favorite photograph, or catching up on my favorite shows.",
+      p4: "I'm currently building projects that connect technology with real human impact — and always looking for opportunities to grow and collaborate.",
+    },
+    skills: {
+      title: "Skills & Technologies",
+      frontend: "Frontend",
+      backend: "Backend",
+      tools: "Tools",
+      softSkills: "Soft Skills",
+      softSkillsList: [
+        "Problem Solving",
+        "Team Collaboration",
+        "Communication",
+        "Continuous Learning",
+      ],
+    },
+    projects: {
+      title: "Featured Projects",
+      liveDemo: "Live Demo",
+      github: "GitHub",
+    },
+    contact: {
+      title: "Get In Touch",
+      intro:
+        "I'm always open to new opportunities and interesting projects. Feel free to reach out if you'd like to work together!",
+      name: "Name",
+      namePlaceholder: "John Doe",
+      email: "Email",
+      emailPlaceholder: "john.doe@example.com",
+      message: "Message",
+      messagePlaceholder: "Message here...",
+      send: "Send Message",
+      successTitle: "Message Sent Successfully!",
+      successMessage: "Thank you for reaching out. I'll get back to you soon!",
+    },
+    footer: {
+      rights: "All rights reserved.",
+    },
+  },
+};
+
+let currentLang = "no"; // Default to Norwegian
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("preferredLanguage", lang);
+
+  const t = translations[lang];
+
+  // Update navigation
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const keys = element.getAttribute("data-i18n").split(".");
+    let translation = t;
+    keys.forEach((key) => {
+      translation = translation[key];
+    });
+    if (translation) element.textContent = translation;
+  });
+
+  // Update sections without data-i18n
+  const aboutSection = document.querySelector("#about");
+  if (aboutSection) {
+    aboutSection.querySelector("h2").textContent = t.about.title;
+    const paragraphs = aboutSection.querySelectorAll("p");
+    if (paragraphs[0]) paragraphs[0].textContent = t.about.p1;
+    if (paragraphs[1]) paragraphs[1].textContent = t.about.p2;
+    if (paragraphs[2]) paragraphs[2].textContent = t.about.p3;
+    if (paragraphs[3]) paragraphs[3].textContent = t.about.p4;
+  }
+
+  // Update skills section
+  const skillsSection = document.querySelector("#skills");
+  if (skillsSection) {
+    skillsSection.querySelector("h2").textContent = t.skills.title;
+    const skillCards = skillsSection.querySelectorAll(".skill-card h3");
+    if (skillCards[0]) skillCards[0].textContent = t.skills.frontend;
+    if (skillCards[1]) skillCards[1].textContent = t.skills.backend;
+    if (skillCards[2]) skillCards[2].textContent = t.skills.tools;
+    if (skillCards[3]) {
+      skillCards[3].textContent = t.skills.softSkills;
+      const softSkillsLi = skillCards[3].parentElement.querySelectorAll("li");
+      t.skills.softSkillsList.forEach((skill, i) => {
+        if (softSkillsLi[i]) softSkillsLi[i].textContent = skill;
+      });
+    }
+  }
+
+  // Update projects section
+  const projectsSection = document.querySelector("#projects");
+  if (projectsSection) {
+    projectsSection.querySelector("h2").textContent = t.projects.title;
+    document
+      .querySelectorAll(".btn-primary:not(.btn-disabled)")
+      .forEach((btn) => {
+        if (btn.closest(".project-links")) {
+          btn.textContent = t.projects.liveDemo;
+        }
+      });
+    document.querySelectorAll(".btn-ghost").forEach((btn) => {
+      if (btn.closest(".project-links")) {
+        btn.textContent = t.projects.github;
+      }
+    });
+  }
+
+  // Update contact section
+  const contactSection = document.querySelector("#contact");
+  if (contactSection) {
+    contactSection.querySelector("h2").textContent = t.contact.title;
+    contactSection.querySelector(".contact-intro").textContent =
+      t.contact.intro;
+
+    const labels = contactSection.querySelectorAll("label");
+    if (labels[0]) labels[0].textContent = t.contact.name;
+    if (labels[1]) labels[1].textContent = t.contact.email;
+    if (labels[2]) labels[2].textContent = t.contact.message;
+
+    const inputs = contactSection.querySelectorAll(
+      'input[type="text"], input[type="email"], textarea'
+    );
+    if (inputs[0]) inputs[0].placeholder = t.contact.namePlaceholder;
+    if (inputs[1]) inputs[1].placeholder = t.contact.emailPlaceholder;
+    if (inputs[2]) inputs[2].placeholder = t.contact.messagePlaceholder;
+
+    const submitBtn = contactSection.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.textContent = t.contact.send;
+
+    const successTitle = contactSection.querySelector(".success-message h3");
+    const successMsg = contactSection.querySelector(".success-message p");
+    if (successTitle) successTitle.textContent = t.contact.successTitle;
+    if (successMsg) successMsg.textContent = t.contact.successMessage;
+  }
+
+  // Update footer
+  const footer = document.querySelector(".footer p");
+  if (footer) {
+    footer.textContent = `© 2025 Mohammed Elmongy. ${t.footer.rights}`;
+  }
+
+  // Update language toggle icon
+  const langIcon = document.querySelector(".lang-icon");
+  if (langIcon) {
+    langIcon.textContent = lang === "no" ? "🇬🇧" : "🇳🇴";
+  }
+
+  // Update typing text
+  updateTypingText(t.hero.typing);
+
+  // Update HTML lang attribute
+  document.documentElement.lang = lang === "no" ? "no" : "en";
+}
+
+// Initialize language on page load
+window.addEventListener("load", () => {
+  const savedLang = localStorage.getItem("preferredLanguage") || "no";
+  setLanguage(savedLang);
+});
+
+// Language toggle button
+document.addEventListener("DOMContentLoaded", () => {
+  const langToggle = document.querySelector(".lang-toggle");
+  if (langToggle) {
+    langToggle.addEventListener("click", () => {
+      const newLang = currentLang === "no" ? "en" : "no";
+      setLanguage(newLang);
+    });
+  }
+});
+
 // ===== Loading Animation =====
 window.addEventListener("load", () => {
   const loader = document.querySelector(".loader-wrapper");
@@ -7,16 +252,32 @@ window.addEventListener("load", () => {
 });
 
 // ===== Typing Animation =====
-const textToType =
-  "From fiber optics to full-stack — building calm, reliable web apps.";
+let textToType =
+  "Fra fiberoptikk til full-stack — bygger rolige, pålitelige webapper.";
 const typedTextElement = document.getElementById("typed-text");
 let charIndex = 0;
+let typingTimeout;
 
 function typeText() {
   if (charIndex < textToType.length) {
     typedTextElement.textContent += textToType.charAt(charIndex);
     charIndex++;
-    setTimeout(typeText, 50);
+    typingTimeout = setTimeout(typeText, 50);
+  }
+}
+
+function updateTypingText(newText) {
+  // Clear existing timeout
+  if (typingTimeout) {
+    clearTimeout(typingTimeout);
+  }
+
+  // Reset and start new typing
+  textToType = newText;
+  charIndex = 0;
+  if (typedTextElement) {
+    typedTextElement.textContent = "";
+    setTimeout(typeText, 100);
   }
 }
 
