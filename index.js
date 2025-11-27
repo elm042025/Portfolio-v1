@@ -130,12 +130,12 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all cards and sections
-document.querySelectorAll(".card, section").forEach((el) => {
-  el.style.opacity = "0";
-  el.style.transform = "translateY(30px)";
-  el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-  observer.observe(el);
-});
+// document.querySelectorAll(".card, section").forEach((el) => {
+//   el.style.opacity = "0";
+//   el.style.transform = "translateY(30px)";
+//   el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+//   observer.observe(el);
+// });
 
 // ===== Contact Form Handling =====
 // Check if form was successfully submitted
