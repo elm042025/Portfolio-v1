@@ -9,7 +9,7 @@ const translations = {
     },
     hero: {
       typing:
-        "Fra fiberoptikk til full-stack — bygger rolige, pålitelige webapper.",
+        "Fra fiberoptikk til fullstack — bygger rolige, pålitelige nettapper.",
       viewProjects: "Se prosjekter",
       getInTouch: "Ta kontakt",
     },
@@ -66,7 +66,7 @@ const translations = {
     },
     hero: {
       typing:
-        "From fiber optics to full-stack — building calm, reliable web apps.",
+        "From fiber optics to fullstack — building calm, reliable web apps.",
       viewProjects: "View Projects",
       getInTouch: "Get in touch",
     },
