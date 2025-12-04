@@ -17,7 +17,7 @@ const translations = {
       title: "Om meg",
       p1: "Hei! Jeg er Mohammed — en utvikler med bakgrunn fra fiberoptikk. Etter 12 år innen telekom, gikk jeg over til webutvikling for å kombinere min tekniske presisjon med kreativ problemløsning.",
       p2: "Min tilnærming til koding er metodisk og detaljorientert. Jeg fokuserer på å skrive ren, vedlikeholdbar kode og lage brukeropplevelser som føles intuitive, rolige og målrettede.",
-      p3: "Når jeg ikke koder, utforsker jeg vanligvis nye teknologier, kjører langt for å ta mitt neste favoritbilde, eller tar igjen favorittseriene mine.",
+      p3: "Når jeg ikke koder, utforsker jeg vanligvis nye teknologier, kjører langt for å ta mitt neste favorittbilde, eller tar igjen favorittseriene mine.",
       p4: "Jeg bygger for tiden prosjekter som kobler teknologi med reell menneskelig påvirkning — og ser alltid etter muligheter til å vokse og samarbeide.",
     },
     skills: {
